@@ -41,31 +41,34 @@
 <body>
 
 <?php require_once 'db_connect.php' ?>
+<?php require_once 'echo_userident_form.php' ?>
 
-Add piece of clothing
-<form action="/do_add_clothing.php">
-Name: <input type="text" name="name"><br/>
-Cost (in cents!): <input type="text" name="cost"><br />
-Garment type: <select name="garm" id="garm">
-<option value=""></option>
-<?php include("echo_allgarm_options.php"); ?></select>
-</select><br/>
-Any additional notes: 
-<textarea name="notes" value=""></textarea><br/>
-<input type="submit" value="Go!">
-</form>
-</body>
-
-Change fit
+<h3>Daily fit</h3>
 <form id="fit" action="/do_write_fit.php">
 <input type="date" name="day" id="fit_date">
 <div id="fit_rest">
 	<div id="clothing_items">
 	<?php include("echo_allclothing_checkboxes.php"); ?></div>
-	<input type="text" id="txtValue" name="items" disabled><br/>
+	<input type="text" id="txtValue" name="items" style="display:none;"><br/>
 	<input type="submit" value="Go!">
 </div>
 </form>
+
+<h3>Add piece of clothing</h3>
+<form action="/do_add_clothing.php">
+	Name: <input type="text" name="name"><br/>
+	Cost (in cents!): <input type="text" name="cost"><br />
+	Garment type: <select name="garm" id="garm">
+	<option value=""></option>
+	<?php include("echo_allgarm_options.php"); ?></select>
+	</select><br/>
+	Any additional notes: 
+	<textarea name="notes" value=""></textarea><br/>
+	<input type="submit" value="Go!">
+</form>
+
+<?php include("echo_allclothing2_editdropdown.php"); ?></div>
+</body>
 
 <script>
 	document.getElementById("fit_date").valueAsDate = new Date();

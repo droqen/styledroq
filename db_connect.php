@@ -9,10 +9,9 @@ if ($_POST["logout"]) {
 	require_once 'echo_login_form.php';
 	die();
 } else if ($_SESSION["user"]=="droqen") {
-	require_once 'echo_userident_form.php';
+	// yay!
 } else if ($_POST["password"]==$PASSWORD) {
 	$_SESSION["user"]="droqen"; // yay!
-	require_once 'echo_userident_form.php';
 } else {
 	require_once 'echo_login_form.php';
 	die();
