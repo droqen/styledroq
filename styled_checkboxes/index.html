@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Styled Checboxes test</title></head>
+	<style>
+		label.stylchek input[type=checkbox] { display:none; }
+		label.stylchek {
+			position: relative;
+			display: inline-block;
+			width: 104px; height: 104px;
+			color:#000; cursor: pointer;
+			user-select: none; -webkit-user-drag: none; -webkit-user-select: none; -webkit-user-modify: none;
+		}
+		label.stylchek span { display: none; position: absolute; bottom: 0; line-height: .75em; padding: 2px 2px; border-radius: 2px; margin-left: 4px; }
+		label.stylchek:has(input:checked) { color:#a0a; }
+		label.stylchek img {
+			position: absolute;
+			width: 100px; height: 100px;
+			opacity: 60%;
+			user-select: none; -webkit-user-drag: none; -webkit-user-select: none; -webkit-user-modify: none;
+		}
+		label.stylchek img { border: 2px solid transparent; border-radius: 5px; }
+		label.stylchek:has(input:checked) img { border-color: #f0f; opacity: 100%; background-color: #faf;}
+	</style>
+<body>
+	<form>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>Inverse Sweater Longname</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="invalid.png" alt="namee" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+		<label class="stylchek"><input type='checkbox'/><img src="sweater_inverse.png" /><span>namee</span></label>
+	</form>
+</body>
+</html>
