@@ -40,6 +40,8 @@
 
 <body>
 
+<?php require_once 'db_connect.php' ?>
+
 Add piece of clothing
 <form action="/do_add_clothing.php">
 Name: <input type="text" name="name"><br/>
@@ -60,7 +62,7 @@ Change fit
 <div id="fit_rest">
 	<div id="clothing_items">
 	<?php include("echo_allclothing_checkboxes.php"); ?></div>
-	<input type="text" id="txtValue" name="items"><br/>
+	<input type="text" id="txtValue" name="items" disabled><br/>
 	<input type="submit" value="Go!">
 </div>
 </form>
