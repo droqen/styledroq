@@ -10,7 +10,7 @@
 			$name = $row[1];
 			$allclothingIDs[] = $id;
 			$allclothingNames[] = $name;
-			echo ("<input type='checkbox' class='item' id='item$id' value='$id' /> $name<br />\n");
+			echo ("<label class='stylchek'><input type='checkbox' class='item' id='item$id' value='$id' /><img src='itemimages/$id.png' alt=\"$name (#$id)\" /></label>\n");
 		}
 
 	} catch (PDOException $e) {

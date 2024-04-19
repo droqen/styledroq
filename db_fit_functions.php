@@ -36,7 +36,9 @@ function set_fit_items($day, $items) {
 	$successful_delete_count = 0;
 
 	foreach ($items as $item) {
-		if (in_array($item, $olditems)) {
+		if ($item == "") {
+			continue;
+		} else if (in_array($item, $olditems)) {
 			$leave_count ++;
 		} else {
 			$inserts[] = "(?,$item)";

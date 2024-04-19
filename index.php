@@ -2,8 +2,10 @@
 <html>
 <head>
 <title>styledroq</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="https://code.jquery.com/jquery-1.7.2.js"></script>
 <script>
+	let todays_previous_clothing = "";
 	function updateDate() {
 		console.log("date changed...");
 		$("#fit_rest").hide();
@@ -20,6 +22,7 @@
 					console.log('#fit input#item'+selectedItemId);
 					$('#fit input#item'+selectedItemId).prop("checked", true);
 				});
+				todays_previous_clothing = updateTextArea();
 				updateTextArea();
 				$("#fit_rest").show();
 			}
@@ -28,7 +31,16 @@
     function updateTextArea() {
         var allVals = $('input.item:checked').map( 
         function() {return this.value;}).get().join("_");
-        $('#txtValue').val(allVals)
+		if (allVals == "") { allVals = "_"; }
+        $('#txtValue').val(allVals);
+		if (allVals == todays_previous_clothing) {
+			$("#submit_fit").prop('value', 'No changes');
+			$("#submit_fit").prop('disabled', true);
+		} else {
+			$("#submit_fit").prop('value', 'Save changes');
+			$("#submit_fit").prop('disabled', false);
+		}
+		return allVals;
     }
     $(function () {
         $('#fit input.item').click(updateTextArea);
@@ -36,6 +48,36 @@
         updateTextArea();
     });
 </script>
+<style>
+	label.stylchek input[type=checkbox] { display:none; }
+	label.stylchek {
+		position: relative;
+		display: inline-block;
+		width: 10.0em; height: 10.0em;
+		color:#000; cursor: pointer;
+	}
+	label.stylchek span { display: none; position: absolute; bottom: 0; line-height: .75em; padding: 2px 2px; border-radius: 2px; margin-left: 4px; }
+	label.stylchek:has(input:checked) { color:#a0a; }
+	label.stylchek img {
+		position: absolute;
+		width: 10.0em; height: 10.0em;
+		opacity: 60%;
+	}
+	label.stylchek img { border: 2px solid transparent; border-radius: 5px; }
+	label.stylchek:has(input:checked) img { border-color: #f0f; opacity: 100%; background-color: #faf;}
+</style>
+<style>
+	input[type=submit] {
+		margin: 5px;
+		font-size: 1em; font-family: monospace;
+		background-color: #9cc;
+		cursor: pointer;
+	}
+	input[type=submit]:disabled {
+		background-color: #bdd;
+		cursor: initial;
+	}
+</style>
 </head>
 
 <body>
@@ -49,8 +91,7 @@
 <div id="fit_rest">
 	<div id="clothing_items">
 	<?php include("echo_allclothing_checkboxes.php"); ?></div>
-	<input type="text" id="txtValue" name="items" style="display:none;"><br/>
-	<input type="submit" value="Go!">
+	<input type="submit" value="Save to DB" id="submit_fit"> <input type="text" id="txtValue" name="items" style="display:none;">
 </div>
 </form>
 
